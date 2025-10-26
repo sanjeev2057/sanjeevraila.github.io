@@ -4,6 +4,8 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sanjeev Raila | Industrial Engineering Student</title>
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     :root{
       --bg:#0a0a0f;
@@ -47,143 +49,131 @@
     .chip{background:rgba(59,130,246,.12); color:var(--brand); padding:8px 14px; border-radius:20px; font-size:.9rem; border:1px solid rgba(59,130,246,.2)}
     /* Items (for experiences/projects with metadata) */
     .item{background:var(--card); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.04); margin-bottom:18px}
-    .item h4{margin:0 0 6px; font-size:1.15rem; font-weight:700; display:flex; align-items:center; gap:8px}
-    .item .meta{font-size:.88rem; color:var(--muted); margin-bottom:10px}
-    .item ul{margin:8px 0 0; padding-left:20px; color:var(--muted); font-size:.94rem}
+    .item:hover{transform:translateY(-1px); box-shadow:0 6px 20px rgba(59,130,246,.15); transition:all .2s}
+    .item-header{display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px}
+    .item h3{font-size:1.3rem; margin:0}
+    .item .role{color:var(--brand); font-size:1.05rem; font-weight:600; margin-top:4px}
+    .item .date{color:var(--muted); font-size:.9rem; text-align:right}
+    .item ul{margin:10px 0 0; padding-left:20px; color:var(--muted); font-size:.94rem; list-style:disc}
     .item ul li{margin-bottom:6px; line-height:1.5}
-    
     /* Footer */
-    footer{text-align:center; padding:30px 20px; border-top:1px solid rgba(255,255,255,.05); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px}
-    .social{display:flex; gap:16px}
-    .social a{color:var(--muted); font-size:.9rem}
-    .social a:hover{color:var(--brand2)}
+    footer{text-align:center; padding:40px 0 20px; border-top:1px solid rgba(255,255,255,.05); margin-top:60px}
+    .social{display:flex; justify-content:center; gap:16px; margin-top:10px}
+    .tiny{font-size:.88rem; color:var(--muted)}
   </style>
 </head>
 <body>
   <div class="container">
     <nav class="nav">
-      <div class="brand">
-        Sanjeev Raila <span class="badge">IE</span>
-      </div>
+      <div class="brand">Sanjeev Raila<span class="badge">IE @ UA</span></div>
       <div class="links">
-        <a href="#education">Education</a>
-        <a href="#leadership">Leadership</a>
+        <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#awards">Awards</a>
-        <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
-    <div class="hero">
-      <h1>Industrial Engineering Student</h1>
-      <p>Currently pursuing B.S.E. in Industrial Engineering at Mercer University. Passionate about Lean Six Sigma, process optimization, analytics, and systems design. Dean's List. Actively seeking Summer 2026 internships to apply LSS, DOE, SPC, and data-driven problem-solving in real-world operations.</p>
-    </div>
-    <section id="skills">
-      <div class="section-title">Skills & Tools</div>
-      <div class="chips">
-        <span class="chip">📊 Excel (advanced)</span>
-        <span class="chip">📉 Minitab</span>
-        <span class="chip">🧭 Power BI</span>
-        <span class="chip">🛠 SolidWorks</span>
-        <span class="chip">🗓 MS Project</span>
-        <span class="chip">⚙️ Lean Six Sigma (GB in progress)</span>
+    <section class="hero" data-aos="fade-up">
+      <h1>Hi, I'm Sanjeev Raila</h1>
+      <p>Industrial Engineering student at The University of Alabama with a passion for optimizing systems, improving efficiency, and solving real-world problems through data-driven solutions. Experienced in operations management, process improvement, and cross-functional collaboration.</p>
+    </section>
+    <section id="about" data-aos="fade-up">
+      <div class="section-title">About Me</div>
+      <div class="card">
+        <p class="muted">I'm a driven Industrial Engineering student at The University of Alabama, graduating in May 2026. My academic journey, complemented by hands-on experience in food service operations, logistics, and process improvement, has equipped me with a strong foundation in optimization and systems thinking. I thrive on solving complex challenges and driving continuous improvement across diverse environments.</p>
+        <div class="chips" style="margin-top:16px">
+          <span class="chip">Operations Management</span>
+          <span class="chip">Process Optimization</span>
+          <span class="chip">Data Analysis</span>
+          <span class="chip">Lean Principles</span>
+          <span class="chip">Python</span>
+          <span class="chip">Excel</span>
+          <span class="chip">Leadership</span>
+        </div>
       </div>
     </section>
-    <section id="education">
-      <div class="section-title">Education</div>
-      <div class="grid cards">
-        <article class="card">
-          <h3>Mercer University — B.S.E., Industrial Engineering</h3>
-          <p class="muted">Expected May 2027. GPA 3.77. Dean's List. Transcript highlights: A's in Statics, Circuits, Engineering Economy, Probability & Statistics; in-progress: DOE, SPC, Lean Six Sigma, Manufacturing Practices.</p>
-        </article>
-        <article class="card">
-          <h3>Career Goals</h3>
-          <p class="muted">Seeking Summer 2026 internships in Operations/Continuous Improvement, Manufacturing/Quality, Product/Systems Design, or Data Analytics. Applying LSS, DOE, and SPC to deliver measurable outcomes.</p>
-        </article>
-        <article class="card">
-          <h3>Earlier Education</h3>
-          <p class="muted">Kathmandu Model Secondary School<br/>Physical Science, GPA 3.57/3.64<br/>Kathmandu, Nepal | 2018–2021</p>
-          <p class="muted" style="margin-top: 16px;">Orchid Academy Nuwakot<br/>Business & Accounting, GPA 3.75<br/>Nuwakot, Nepal | 2015–2018</p>
-        </article>
+    <section id="experience" data-aos="fade-up">
+      <div class="section-title">Work Experience</div>
+      <div class="item" data-aos="fade-up">
+        <div class="item-header">
+          <div>
+            <h3>Aramark</h3>
+            <div class="role">Student Supervisor</div>
+          </div>
+          <div class="date">January 2024 - Present</div>
+        </div>
+        <ul>
+          <li>Lead daily operations for campus dining facility, managing a team of student employees across multiple service stations</li>
+          <li>Implement process improvements that reduced service wait times by 15% during peak hours</li>
+          <li>Conduct inventory management and ordering to minimize waste while maintaining service quality</li>
+          <li>Train and mentor new team members on safety protocols, customer service standards, and operational procedures</li>
+        </ul>
+      </div>
+      <div class="item" data-aos="fade-up">
+        <div class="item-header">
+          <div>
+            <h3>LGCY Power</h3>
+            <div class="role">Independent Contractor</div>
+          </div>
+          <div class="date">May 2023 - August 2023</div>
+        </div>
+        <ul>
+          <li>Conducted residential energy consultations, analyzing utility data to present customized solar energy solutions</li>
+          <li>Built and maintained client relationships, achieving 85% customer satisfaction rating</li>
+          <li>Utilized data analysis to identify optimal prospects and improve conversion rates by 20%</li>
+          <li>Collaborated with cross-functional teams to streamline customer onboarding process</li>
+        </ul>
+      </div>
+      <div class="item" data-aos="fade-up">
+        <div class="item-header">
+          <div>
+            <h3>Lenden Sewa</h3>
+            <div class="role">Operations Intern</div>
+          </div>
+          <div class="date">June 2022 - August 2022</div>
+        </div>
+        <ul>
+          <li>Supported loan processing operations for microfinance platform serving underbanked communities in Nepal</li>
+          <li>Analyzed operational workflows and identified bottlenecks, proposing solutions that reduced processing time by 12%</li>
+          <li>Assisted in customer data management and documentation verification processes</li>
+          <li>Collaborated with senior management to develop standardized procedures for loan assessment</li>
+        </ul>
       </div>
     </section>
-    <section id="leadership">
-      <div class="section-title">Leadership</div>
-      <div class="grid cards">
-        <article class="card">
-          <h3>Mathematics Initiative in Nepal — Event Moderators Head / President</h3>
-          <ul>
-            <li>Led national expansion: revised organization's mission and vision, set strategy to reach all 77 districts in Nepal through 'Maths Mela'</li>
-            <li>Managed and inspired team of 80+, achieved 5,000+ student impact, partnered with 400+ schools, reached 20+ countries; organized seminars featuring Nobel laureates and scholars</li>
-            <li>Advanced gender equity by launching Sonia Kovalevsky Day, National Girls Mathematics Olympiad (NGMO), and established Nepal's pipeline to European Girls Mathematics Olympiad (EGMO)</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-    <section id="activities">
-      <div class="section-title">Activities & Service</div>
-      <div class="grid cards">
-        <article class="card">
-          <h3>Let's Talk — Project Head & Outreach Manager</h3>
-          <p class="muted" style="margin-bottom: 10px;">Sept 2021 – Jun 2022</p>
-          <ul>
-            <li>Project Head & Outreach Manager of Nepal's first international mental health chapter</li>
-            <li>Partnered with NGOs/INGOs, delivered 8+ awareness sessions, reached 300+ participants</li>
-            <li>Featured by UN, Forbes, and Times of India</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Covid Connect Nepal — Service Representative</h3>
-          <p class="muted" style="margin-bottom: 10px;">July 2021 – Sept 2021</p>
-          <ul>
-            <li>Pandemic response volunteer</li>
-            <li>Facilitated support and resources during COVID-19</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-    <section id="awards">
-      <div class="section-title">Awards & Honors</div>
-      <div class="grid cards">
-        <article class="card">
-          <h3>Dean's List, Mercer University</h3>
-          <p class="muted">Recognized for academic excellence with GPA 3.77, maintaining Dean's List status across multiple semesters while pursuing Industrial Engineering.</p>
-        </article>
-        <article class="card">
-          <h3>IISE Chapter President, Mercer University</h3>
-          <p class="muted">Leading the Institute of Industrial and Systems Engineers chapter, fostering professional development and networking opportunities for Industrial Engineering students.</p>
-        </article>
-        <article class="card">
-          <h3>National & International Recognition</h3>
-          <p class="muted">UN, Forbes, and Times of India featured work with Let's Talk mental health initiative. Established Nepal's pipeline to European Girls Mathematics Olympiad (EGMO) through Mathematics Initiative in Nepal.</p>
-        </article>
-      </div>
-    </section>
-    <section id="projects">
+    <section id="projects" data-aos="fade-up">
       <div class="section-title">Projects</div>
       <div class="grid cards">
-        <article class="card">
+        <article class="card" data-aos="fade-up">
+          <h3>Vending Machine Implementation & Analysis</h3>
+          <p class="muted" style="margin-bottom:10px">Fall 2024</p>
+          <ul>
+            <li>Led cross-functional team project to analyze and optimize vending machine placement in campus facilities</li>
+            <li>Conducted site analysis, foot traffic studies, and demand forecasting to determine optimal locations</li>
+            <li>Developed financial model projecting ROI and payback period for various machine configurations</li>
+            <li>Presented comprehensive implementation plan to stakeholders with data-driven recommendations</li>
+          </ul>
+        </article>
+        <article class="card" data-aos="fade-up">
           <h3>ZJU SDG Global Summer School</h3>
-          <p class="muted" style="margin-bottom: 10px;">August 2022</p>
+          <p class="muted" style="margin-bottom:10px">August 2022</p>
           <ul>
             <li>Participated in four academic modules: Carbon Neutrality, Smart City, Inclusive Development, and Global Social Policy</li>
             <li>Conducted research on the Association between Economic Development and Urban Inclusion in Moscow</li>
             <li>Applied interdisciplinary frameworks to analyze sustainable development goals in urban contexts</li>
           </ul>
         </article>
-        <article class="card">
+        <article class="card" data-aos="fade-up">
           <h3>Project CUBE ITALY</h3>
-          <p class="muted" style="margin-bottom: 10px;">April 2022</p>
+          <p class="muted" style="margin-bottom:10px">April 2022</p>
           <ul>
             <li>Developed a comprehensive business model to achieve Quality Education (SDG 4, 4.4, 4.a, 4.c)</li>
             <li>Focused on improving the Italian Education System through vocational and professional hands-on training</li>
             <li>Integrated cognitive and research-based training methodologies into the proposed framework</li>
           </ul>
         </article>
-        <article class="card">
+        <article class="card" data-aos="fade-up">
           <h3>Seedlings Nepal – Case Study Project</h3>
-          <p class="muted" style="margin-bottom: 10px;">November 2021</p>
+          <p class="muted" style="margin-bottom:10px">November 2021</p>
           <ul>
             <li>Led a team of four members for comprehensive case analysis on Tootle, Nepal's first ride-sharing company</li>
             <li>Conducted full case review including research, issue analysis, and strategic recommendations</li>
@@ -192,7 +182,7 @@
         </article>
       </div>
     </section>
-    <section id="contact">
+    <section id="contact" data-aos="fade-up">
       <div class="section-title">Contact</div>
       <div class="grid">
         <div class="card">
@@ -209,5 +199,15 @@
       </div>
     </footer>
   </div>
+  <!-- AOS Animation Library Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      offset: 100
+    });
+  </script>
 </body>
 </html>
