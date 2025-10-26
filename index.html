@@ -1,213 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sanjeev Raila | Industrial Engineering Student</title>
-  <!-- AOS Animation Library -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <style>
     :root{
       --bg:#0a0a0f;
+      --panel:#0f1115;
+      --sidebar:#0e1014;
       --card:#13131a;
       --text:#e4e4e7;
       --muted:#9ca3af;
       --brand:#3b82f6;
       --brand2:#8b5cf6;
-      --radius:10px;
-      --shadow:0 4px 12px rgba(0,0,0,.5);
+      --radius:14px;
+      --shadow:0 8px 24px rgba(0,0,0,.45);
+      --border:1px solid rgba(255,255,255,.06);
+      --chip-bg:rgba(59,130,246,.12);
     }
-    *{margin:0; padding:0; box-sizing:border-box}
-    body{font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--bg); color:var(--text); line-height:1.7}
-    a{text-decoration:none; color:var(--brand); transition:color .2s}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:linear-gradient(180deg, #0a0a0f 0%, #0b0d12 100%);color:var(--text);line-height:1.7}
+    a{color:var(--brand);text-decoration:none}
     a:hover{color:var(--brand2)}
-    .container{max-width:1040px; margin:0 auto; padding:20px}
-    /* Navigation */
-    .nav{display:flex; justify-content:space-between; align-items:center; padding:16px 0; border-bottom:1px solid rgba(255,255,255,.05)}
-    .brand{font-size:1.4rem; font-weight:700; display:flex; align-items:center; gap:8px}
-    .badge{background:linear-gradient(135deg,var(--brand),var(--brand2)); padding:4px 10px; border-radius:6px; font-size:.75rem; font-weight:600}
-    .links{display:flex; gap:22px; font-size:.95rem}
-    /* Hero */
-    .hero{margin:48px 0; text-align:center}
-    .hero h1{font-size:2.8rem; margin-bottom:12px; background:linear-gradient(135deg,var(--brand),var(--brand2)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
-    .hero p{font-size:1.05rem; color:var(--muted); max-width:720px; margin:0 auto}
-    /* Sections */
-    section{margin:48px 0}
-    .section-title{font-size:2rem; font-weight:700; margin-bottom:24px; position:relative; padding-left:14px}
-    .section-title::before{content:""; position:absolute; left:0; top:50%; transform:translateY(-50%); width:5px; height:28px; background:linear-gradient(135deg,var(--brand),var(--brand2)); border-radius:3px}
-    /* Grid & Cards */
-    .grid{display:grid; gap:18px}
-    .grid.cards{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-    .card{background:var(--card); padding:24px; border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.04); transition:transform .2s,box-shadow .2s}
-    .card:hover{transform:translateY(-2px); box-shadow:0 6px 20px rgba(59,130,246,.2)}
-    .card h3{font-size:1.25rem; margin-bottom:10px}
-    .card .muted{color:var(--muted); font-size:.95rem; line-height:1.6}
-    .card ul{margin:10px 0 0; padding-left:20px; color:var(--muted); font-size:.94rem}
-    .card ul li{margin-bottom:6px; line-height:1.5}
-    /* Chips */
-    .chips{display:flex; flex-wrap:wrap; gap:10px}
-    .chip{background:rgba(59,130,246,.12); color:var(--brand); padding:8px 14px; border-radius:20px; font-size:.9rem; border:1px solid rgba(59,130,246,.2)}
-    /* Items (for experiences/projects with metadata) */
-    .item{background:var(--card); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.04); margin-bottom:18px}
-    .item:hover{transform:translateY(-1px); box-shadow:0 6px 20px rgba(59,130,246,.15); transition:all .2s}
-    .item-header{display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px}
-    .item h3{font-size:1.3rem; margin:0}
-    .item .role{color:var(--brand); font-size:1.05rem; font-weight:600; margin-top:4px}
-    .item .date{color:var(--muted); font-size:.9rem; text-align:right}
-    .item ul{margin:10px 0 0; padding-left:20px; color:var(--muted); font-size:.94rem; list-style:disc}
-    .item ul li{margin-bottom:6px; line-height:1.5}
-    /* Footer */
-    footer{text-align:center; padding:40px 0 20px; border-top:1px solid rgba(255,255,255,.05); margin-top:60px}
-    .social{display:flex; justify-content:center; gap:16px; margin-top:10px}
-    .tiny{font-size:.88rem; color:var(--muted)}
+
+    /* Shell layout: left sidebar + right main, like the reference */
+    .shell{max-width:1200px;margin:0 auto;padding:28px;display:grid;grid-template-columns:320px 1fr;gap:28px}
+    @media (max-width: 980px){.shell{grid-template-columns:1fr} .sidebar{position:static; top:auto}}
+
+    .sidebar{position:sticky; top:24px;align-self:start;background:var(--sidebar);border:var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
+    .profile{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px}
+    .avatar{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand2));display:grid;place-items:center;color:white;font-weight:800;letter-spacing:.5px}
+    .name{font-size:1.35rem;font-weight:800}
+    .title{color:var(--muted);font-weight:600}
+
+    .contact{margin-top:16px;width:100%;display:grid;gap:10px}
+    .contact a{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--card);border:var(--border);border-radius:10px;padding:10px 12px;color:var(--text)}
+    .contact a:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(59,130,246,.15)}
+
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;justify-content:center}
+    .chip{background:var(--chip-bg);color:var(--brand);border:1px solid rgba(59,130,246,.25);padding:8px 12px;border-radius:999px;font-size:.9rem}
+
+    .main{display:flex;flex-direction:column;gap:24px}
+
+    .header{background:var(--panel);border:var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px}
+    .header h1{font-size:2.2rem;background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+    .lead{color:var(--muted)}
+
+    .section{background:var(--panel);border:var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
+    .section-title{display:flex;align-items:center;gap:10px;font-size:1.25rem;font-weight:800;margin-bottom:14px}
+    .pill{width:10px;height:28px;border-radius:6px;background:linear-gradient(135deg,var(--brand),var(--brand2))}
+
+    .grid{display:grid;gap:14px}
+    .grid.cards{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+
+    .card{background:var(--card);border:var(--border);border-radius:12px;padding:18px;transition:transform .2s, box-shadow .2s}
+    .card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(59,130,246,.18)}
+    .card h3{font-size:1.1rem;margin-bottom:6px}
+    .muted{color:var(--muted)}
+
+    .item{background:var(--card);border:var(--border);border-radius:12px;padding:18px}
+    .item-header{display:flex;justify-content:space-between;gap:10px;margin-bottom:8px}
+    .role{color:var(--brand);font-weight:700}
+    .date{color:var(--muted);font-size:.95rem;white-space:nowrap}
+    .item ul{margin-left:18px;color:var(--muted)}
+
+    footer{padding:26px 0;text-align:center;color:var(--muted)}
+    .top{display:inline-block;margin-top:6px;border:var(--border);padding:8px 12px;border-radius:999px;background:var(--card)}
   </style>
 </head>
 <body>
-  <div class="container">
-    <nav class="nav">
-      <div class="brand">Sanjeev Raila<span class="badge">IE @ UA</span></div>
-      <div class="links">
+  <div class="shell">
+    <!-- Left Sidebar (from reference) -->
+    <aside class="sidebar" data-aos="fade-right">
+      <div class="profile">
+        <div class="avatar" aria-hidden="true">SR</div>
+        <div class="name">Sanjeev Raila</div>
+        <div class="title">Industrial Engineering Student · IE @ UA</div>
+      </div>
+
+      <nav class="contact" aria-label="Contact">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
+        <a href="mailto:sanjeev.raila15@gmail.com">sanjeev.raila15@gmail.com</a>
+        <a href="https://www.linkedin.com/in/sanjeev-raila" target="_blank" rel="noreferrer">/in/sanjeev-raila</a>
+      </nav>
+
+      <div class="chips" aria-label="Skills">
+        <span class="chip">Operations Management</span>
+        <span class="chip">Process Optimization</span>
+        <span class="chip">Data Analysis</span>
+        <span class="chip">Lean Principles</span>
+        <span class="chip">Python</span>
+        <span class="chip">Excel</span>
+        <span class="chip">Leadership</span>
       </div>
-    </nav>
-    <section class="hero" data-aos="fade-up">
-      <h1>Hi, I'm Sanjeev Raila</h1>
-      <p>Industrial Engineering student at The University of Alabama with a passion for optimizing systems, improving efficiency, and solving real-world problems through data-driven solutions. Experienced in operations management, process improvement, and cross-functional collaboration.</p>
-    </section>
-    <section id="about" data-aos="fade-up">
-      <div class="section-title">About Me</div>
-      <div class="card">
-        <p class="muted">I'm a driven Industrial Engineering student at The University of Alabama, graduating in May 2026. My academic journey, complemented by hands-on experience in food service operations, logistics, and process improvement, has equipped me with a strong foundation in optimization and systems thinking. I thrive on solving complex challenges and driving continuous improvement across diverse environments.</p>
-        <div class="chips" style="margin-top:16px">
-          <span class="chip">Operations Management</span>
-          <span class="chip">Process Optimization</span>
-          <span class="chip">Data Analysis</span>
-          <span class="chip">Lean Principles</span>
-          <span class="chip">Python</span>
-          <span class="chip">Excel</span>
-          <span class="chip">Leadership</span>
-        </div>
-      </div>
-    </section>
-    <section id="experience" data-aos="fade-up">
-      <div class="section-title">Work Experience</div>
-      <div class="item" data-aos="fade-up">
-        <div class="item-header">
-          <div>
-            <h3>Aramark</h3>
-            <div class="role">Student Supervisor</div>
-          </div>
-          <div class="date">January 2024 - Present</div>
-        </div>
-        <ul>
-          <li>Lead daily operations for campus dining facility, managing a team of student employees across multiple service stations</li>
-          <li>Implement process improvements that reduced service wait times by 15% during peak hours</li>
-          <li>Conduct inventory management and ordering to minimize waste while maintaining service quality</li>
-          <li>Train and mentor new team members on safety protocols, customer service standards, and operational procedures</li>
-        </ul>
-      </div>
-      <div class="item" data-aos="fade-up">
-        <div class="item-header">
-          <div>
-            <h3>LGCY Power</h3>
-            <div class="role">Independent Contractor</div>
-          </div>
-          <div class="date">May 2023 - August 2023</div>
-        </div>
-        <ul>
-          <li>Conducted residential energy consultations, analyzing utility data to present customized solar energy solutions</li>
-          <li>Built and maintained client relationships, achieving 85% customer satisfaction rating</li>
-          <li>Utilized data analysis to identify optimal prospects and improve conversion rates by 20%</li>
-          <li>Collaborated with cross-functional teams to streamline customer onboarding process</li>
-        </ul>
-      </div>
-      <div class="item" data-aos="fade-up">
-        <div class="item-header">
-          <div>
-            <h3>Lenden Sewa</h3>
-            <div class="role">Operations Intern</div>
-          </div>
-          <div class="date">June 2022 - August 2022</div>
-        </div>
-        <ul>
-          <li>Supported loan processing operations for microfinance platform serving underbanked communities in Nepal</li>
-          <li>Analyzed operational workflows and identified bottlenecks, proposing solutions that reduced processing time by 12%</li>
-          <li>Assisted in customer data management and documentation verification processes</li>
-          <li>Collaborated with senior management to develop standardized procedures for loan assessment</li>
-        </ul>
-      </div>
-    </section>
-    <section id="projects" data-aos="fade-up">
-      <div class="section-title">Projects</div>
-      <div class="grid cards">
-        <article class="card" data-aos="fade-up">
-          <h3>Vending Machine Implementation & Analysis</h3>
-          <p class="muted" style="margin-bottom:10px">Fall 2024</p>
-          <ul>
-            <li>Led cross-functional team project to analyze and optimize vending machine placement in campus facilities</li>
-            <li>Conducted site analysis, foot traffic studies, and demand forecasting to determine optimal locations</li>
-            <li>Developed financial model projecting ROI and payback period for various machine configurations</li>
-            <li>Presented comprehensive implementation plan to stakeholders with data-driven recommendations</li>
-          </ul>
-        </article>
-        <article class="card" data-aos="fade-up">
-          <h3>ZJU SDG Global Summer School</h3>
-          <p class="muted" style="margin-bottom:10px">August 2022</p>
-          <ul>
-            <li>Participated in four academic modules: Carbon Neutrality, Smart City, Inclusive Development, and Global Social Policy</li>
-            <li>Conducted research on the Association between Economic Development and Urban Inclusion in Moscow</li>
-            <li>Applied interdisciplinary frameworks to analyze sustainable development goals in urban contexts</li>
-          </ul>
-        </article>
-        <article class="card" data-aos="fade-up">
-          <h3>Project CUBE ITALY</h3>
-          <p class="muted" style="margin-bottom:10px">April 2022</p>
-          <ul>
-            <li>Developed a comprehensive business model to achieve Quality Education (SDG 4, 4.4, 4.a, 4.c)</li>
-            <li>Focused on improving the Italian Education System through vocational and professional hands-on training</li>
-            <li>Integrated cognitive and research-based training methodologies into the proposed framework</li>
-          </ul>
-        </article>
-        <article class="card" data-aos="fade-up">
-          <h3>Seedlings Nepal – Case Study Project</h3>
-          <p class="muted" style="margin-bottom:10px">November 2021</p>
-          <ul>
-            <li>Led a team of four members for comprehensive case analysis on Tootle, Nepal's first ride-sharing company</li>
-            <li>Conducted full case review including research, issue analysis, and strategic recommendations</li>
-            <li>Prepared detailed report and strategic timeline for company development and market positioning</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-    <section id="contact" data-aos="fade-up">
-      <div class="section-title">Contact</div>
-      <div class="grid">
+    </aside>
+
+    <!-- Right Main Content -->
+    <main class="main">
+      <header class="header" data-aos="fade-up">
+        <h1>Hi, I'm Sanjeev Raila</h1>
+        <p class="lead">Industrial Engineering student at The University of Alabama with a passion for optimizing systems, improving efficiency, and solving real-world problems through data-driven solutions. Experienced in operations management, process improvement, and cross-functional collaboration.</p>
+      </header>
+
+      <section id="about" class="section" data-aos="fade-up">
+        <div class="section-title"><span class="pill"></span><span>About Me</span></div>
         <div class="card">
-          <h3>Get in touch</h3>
-          <p class="muted">Email: <a href="mailto:sanjeev.raila15@gmail.com">sanjeev.raila15@gmail.com</a></p>
-          <p class="muted">LinkedIn: <a href="https://www.linkedin.com/in/sanjeev-raila" target="_blank" rel="noreferrer">/in/sanjeev-raila</a></p>
+          <p class="muted">I'm a driven Industrial Engineering student at The University of Alabama, graduating in May 2026. My academic journey, complemented by hands-on experience in food service operations, logistics, and process improvement, has equipped me with a strong foundation in optimization and systems thinking. I thrive on solving complex challenges and driving continuous improvement across diverse environments.</p>
         </div>
-      </div>
-    </section>
-    <footer>
-      <span class="tiny">© 2025 Sanjeev Raila</span>
-      <div class="social tiny">
-        <a href="#">Top ↑</a>
-      </div>
-    </footer>
+      </section>
+
+      <section id="experience" class="section" data-aos="fade-up">
+        <div class="section-title"><span class="pill"></span><span>Work Experience</span></div>
+
+        <article class="item" data-aos="fade-up">
+          <div class="item-header">
+            <div>
+              <h3>Aramark</h3>
+              <div class="role">Student Supervisor</div>
+            </div>
+            <div class="date">January 2024 - Present</div>
+          </div>
+          <ul>
+            <li>Lead daily operations for campus dining facility, managing a team of student employees across multiple service stations</li>
+            <li>Implement process improvements that reduced service wait times by 15% during peak hours</li>
+            <li>Conduct inventory management and ordering to minimize waste while maintaining service quality</li>
+            <li>Train and mentor new team members on safety protocols, customer service standards, and operational procedures</li>
+          </ul>
+        </article>
+
+        <article class="item" data-aos="fade-up">
+          <div class="item-header">
+            <div>
+              <h3>LGCY Power</h3>
+              <div class="role">Independent Contractor</div>
+            </div>
+            <div class="date">May 2023 - August 2023</div>
+          </div>
+          <ul>
+            <li>Conducted residential energy consultations, analyzing utility data to present customized solar energy solutions</li>
+            <li>Built and maintained client relationships, achieving 85% customer satisfaction rating</li>
+            <li>Utilized data analysis to identify optimal prospects and improve conversion rates by 20%</li>
+            <li>Collaborated with cross-functional teams to streamline customer onboarding process</li>
+          </ul>
+        </article>
+
+        <article class="item" data-aos="fade-up">
+          <div class="item-header">
+            <div>
+              <h3>Lenden Sewa</h3>
+              <div class="role">Operations Intern</div>
+            </div>
+            <div class="date">June 2022 - August 2022</div>
+          </div>
+          <ul>
+            <li>Supported loan processing operations for microfinance platform serving underbanked communities in Nepal</li>
+            <li>Analyzed operational workflows and identified bottlenecks, proposing solutions that reduced processing time by 12%</li>
+            <li>Assisted in customer data management and documentation verification processes</li>
+            <li>Collaborated with senior management to develop standardized procedures for loan assessment</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="projects" class="section" data-aos="fade-up">
+        <div class="section-title"><span class="pill"></span><span>Projects</span></div>
+        <div class="grid cards">
+          <article class="card" data-aos="fade-up">
+            <h3>Vending Machine Implementation &amp; Analysis</h3>
+            <p class="muted" style="margin-bottom:8px">Fall 2024</p>
+            <ul>
+              <li>Led cross-functional team project to analyze and optimize vending machine placement in campus facilities</li>
+              <li>Conducted site analysis, foot traffic studies, and demand forecasting to determine optimal locations</li>
+              <li>Developed financial model projecting ROI and payback period for various machine configurations</li>
+              <li>Presented comprehensive implementation plan to stakeholders with data-driven recommendations</li>
+            </ul>
+          </article>
+          <article class="card" data-aos="fade-up">
+            <h3>ZJU SDG Global Summer School</h3>
+            <p class="muted" style="margin-bottom:8px">August 2022</p>
+            <ul>
+              <li>Participated in four academic modules: Carbon Neutrality, Smart City, Inclusive Development, and Global Social Policy</li>
+              <li>Conducted research on the Association between Economic Development and Urban Inclusion in Moscow</li>
+              <li>Applied interdisciplinary frameworks to analyze sustainable development goals in urban contexts</li>
+            </ul>
+          </article>
+          <article class="card" data-aos="fade-up">
+            <h3>Project CUBE ITALY</h3>
+            <p class="muted" style="margin-bottom:8px">April 2022</p>
+            <ul>
+              <li>Developed a comprehensive business model to achieve Quality Education (SDG 4, 4.4, 4.a, 4.c)</li>
+              <li>Focused on improving the Italian Education System through vocational and professional hands-on training</li>
+              <li>Integrated cognitive and research-based training methodologies into the proposed framework</li>
+            </ul>
+          </article>
+          <article class="card" data-aos="fade-up">
+            <h3>Seedlings Nepal – Case Study Project</h3>
+            <p class="muted" style="margin-bottom:8px">November 2021</p>
+            <ul>
+              <li>Led a team of four members for comprehensive case analysis on Tootle, Nepal's first ride-sharing company</li>
+              <li>Conducted full case review including research, issue analysis, and strategic recommendations</li>
+              <li>Prepared detailed report and strategic timeline for company development and market positioning</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="section" data-aos="fade-up">
+        <div class="section-title"><span class="pill"></span><span>Contact</span></div>
+        <div class="grid">
+          <div class="card">
+            <h3>Get in touch</h3>
+            <p class="muted">Email: <a href="mailto:sanjeev.raila15@gmail.com">sanjeev.raila15@gmail.com</a></p>
+            <p class="muted">LinkedIn: <a href="https://www.linkedin.com/in/sanjeev-raila" target="_blank" rel="noreferrer">/in/sanjeev-raila</a></p>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div>© 2025 Sanjeev Raila</div>
+        <a class="top" href="#top">Top ↑</a>
+      </footer>
+    </main>
   </div>
-  <!-- AOS Animation Library Script -->
+
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 800,
-      easing: 'ease-in-out',
-      once: true,
-      offset: 100
-    });
+    AOS.init({ duration: 800, easing: 'ease-in-out', once: true, offset: 100 });
   </script>
 </body>
 </html>
