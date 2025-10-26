@@ -1,371 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanjeev Raila - Industrial Engineering Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-        }
-        
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        nav {
-            background: #2c3e50;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        nav li {
-            margin: 0 1rem;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        
-        nav a:hover {
-            background: #34495e;
-        }
-        
-        .section {
-            padding: 3rem 0;
-            margin: 2rem 0;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .section h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            color: #2c3e50;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 0.5rem;
-        }
-        
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .skill-category {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
-        
-        .skill-category h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-        
-        .skill-list {
-            list-style: none;
-        }
-        
-        .skill-list li {
-            padding: 0.3rem 0;
-            color: #555;
-        }
-        
-        .skill-list li:before {
-            content: '▶ ';
-            color: #667eea;
-        }
-        
-        .experience-item, .project-item {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            margin: 1rem 0;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
-        
-        .experience-item h3, .project-item h3 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-        
-        .experience-item .role {
-            color: #667eea;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-        
-        .coursework-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .course {
-            background: #e3f2fd;
-            padding: 1rem;
-            border-radius: 5px;
-            text-align: center;
-            font-weight: 500;
-            color: #1976d2;
-        }
-        
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .contact-item {
-            text-align: center;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 8px;
-        }
-        
-        .contact-item h3 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-        
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
-        
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav li {
-                margin: 0.2rem 0;
-            }
-        }
-    </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sanjeev Raila — Industrial Engineering Portfolio</title>
+<style>body{font-family:Arial,sans-serif;padding:40px;max-width:900px;margin:0 auto;color:#222}h1{font-size:40px;margin:0 0 10px}h2{margin-top:40px}nav a{margin-right:12px}section{margin-top:20px}ul{margin-top:8px}code{background:#f3f3f3;padding:2px 6px;border-radius:6px}</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Sanjeev Raila</h1>
-            <p>Industrial Engineering Student | Mercer University</p>
-            <p>Lean Six Sigma | Process Optimization | Operations Analysis</p>
-        </div>
-    </header>
-    
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#coursework">Coursework</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-    
-    <div class="container">
-        <section id="about" class="section">
-            <h2>About Me</h2>
-            <div class="about-grid">
-                <div>
-                    <h3>Professional Profile</h3>
-                    <p>I am a dedicated Industrial Engineering student at Mercer University with a passion for process optimization, operations analysis, and consulting. My academic journey has equipped me with strong analytical skills and leadership experience through my role as IISE Chapter President.</p>
-                </div>
-                <div>
-                    <h3>Career Goals</h3>
-                    <p>Seeking Summer 2026 US internship opportunities in process optimization, operations analysis, or consulting. I am committed to applying Lean Six Sigma methodologies and advanced analytics to drive operational excellence and business improvement.</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="skills" class="section">
-            <h2>Skills & Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Process Improvement</h3>
-                    <ul class="skill-list">
-                        <li>Lean Six Sigma</li>
-                        <li>Process Optimization</li>
-                        <li>Waste Reduction</li>
-                        <li>Continuous Improvement</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Analytics & Research</h3>
-                    <ul class="skill-list">
-                        <li>Advanced Analytics</li>
-                        <li>Data Analysis</li>
-                        <li>Statistical Methods</li>
-                        <li>Research Methodology</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Leadership & Management</h3>
-                    <ul class="skill-list">
-                        <li>Chapter Leadership (IISE)</li>
-                        <li>Team Management</li>
-                        <li>Project Coordination</li>
-                        <li>Strategic Planning</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Specialized Areas</h3>
-                    <ul class="skill-list">
-                        <li>Operations Analysis</li>
-                        <li>Humanitarian Logistics</li>
-                        <li>Supply Chain Management</li>
-                        <li>Consulting Methodologies</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <section id="experience" class="section">
-            <h2>Experience</h2>
-            <div class="experience-item">
-                <h3>IISE Chapter President</h3>
-                <div class="role">Institute of Industrial and Systems Engineers | Mercer University</div>
-                <p>Leading the local IISE chapter, organizing professional development events, coordinating industry networking sessions, and promoting industrial engineering principles among students. Responsible for strategic planning, member engagement, and collaboration with faculty and industry professionals.</p>
-            </div>
-            <div class="experience-item">
-                <h3>Research Assistant</h3>
-                <div class="role">Humanitarian Logistics Research | Mercer University</div>
-                <p>Contributing to cutting-edge research in humanitarian logistics, focusing on supply chain optimization for disaster relief operations. Analyzing data patterns, developing process improvements, and supporting research publications in the field of humanitarian operations.</p>
-            </div>
-        </section>
-        
-        <section id="projects" class="section">
-            <h2>Projects</h2>
-            <div class="project-item">
-                <h3>Lean Six Sigma Process Improvement Initiative</h3>
-                <p>Applied Lean Six Sigma methodologies to identify and eliminate waste in operational processes. Conducted thorough analysis, implemented solutions, and measured results to achieve significant efficiency improvements.</p>
-            </div>
-            <div class="project-item">
-                <h3>Humanitarian Logistics Optimization</h3>
-                <p>Research project focusing on optimizing supply chain operations for humanitarian aid distribution. Utilized advanced analytics to improve delivery efficiency and resource allocation in emergency response scenarios.</p>
-            </div>
-            <div class="project-item">
-                <h3>Operations Analysis Case Study</h3>
-                <p>Comprehensive analysis of operational workflows using industrial engineering principles. Identified bottlenecks, proposed solutions, and developed implementation strategies for process optimization.</p>
-            </div>
-        </section>
-        
-        <section id="coursework" class="section">
-            <h2>Relevant Coursework</h2>
-            <div class="coursework-grid">
-                <div class="course">Advanced Analytics</div>
-                <div class="course">Lean Manufacturing</div>
-                <div class="course">Six Sigma Methodology</div>
-                <div class="course">Operations Research</div>
-                <div class="course">Supply Chain Management</div>
-                <div class="course">Statistical Analysis</div>
-                <div class="course">Process Engineering</div>
-                <div class="course">Quality Control</div>
-                <div class="course">Project Management</div>
-                <div class="course">Industrial Design</div>
-                <div class="course">Systems Analysis</div>
-                <div class="course">Optimization Methods</div>
-            </div>
-        </section>
-        
-        <section id="contact" class="section">
-            <h2>Contact Information</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <h3>Academic</h3>
-                    <p>Industrial Engineering Student<br>
-                    Mercer University<br>
-                    Macon, Georgia</p>
-                </div>
-                <div class="contact-item">
-                    <h3>Professional Interests</h3>
-                    <p>Summer 2026 Internships<br>
-                    Process Optimization<br>
-                    Operations Analysis<br>
-                    Management Consulting</p>
-                </div>
-                <div class="contact-item">
-                    <h3>Connect</h3>
-                    <p>Available for networking<br>
-                    Industry collaborations<br>
-                    Research opportunities<br>
-                    Professional mentorship</p>
-                </div>
-            </div>
-        </section>
-    </div>
-    
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Sanjeev Raila. Industrial Engineering Portfolio.</p>
-            <p>Mercer University | Lean Six Sigma | Process Optimization</p>
-        </div>
-    </footer>
+<nav>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#education">Education</a>
+  <a href="#contact">Contact</a>
+</nav>
+<header>
+  <h1>Hi, I'm Sanjeev Raila</h1>
+  <p>Industrial Engineering @ Mercer University — Lean Six Sigma, Analytics, Operations</p>
+</header>
+<section id="about">
+  <h2>About</h2>
+  <p>Process-improvement focused engineer with leadership experience as IISE Chapter 947 President and research experience in network design & inventory management for humanitarian logistics.</p>
+  <ul>
+    <li>GPA 3.77, Dean's List</li>
+    <li>Lean Six Sigma Green Belt (in progress)</li>
+    <li>Tools: Excel (advanced), Minitab, Power BI, SolidWorks, MS Project</li>
+  </ul>
+</section>
+<section id="experience">
+  <h2>Experience & Leadership</h2>
+  <h3>Marketing Intern — Aramark (Jan 2024 – Present)</h3>
+  <ul>
+    <li>Automated data-entry; reduced project lead time by 15%.</li>
+    <li>Built real-time tracking; accelerated planning decisions by 20%.</li>
+  </ul>
+  <h3>Sales & Solar Design Intern — LGCY Power (May 2025 – Aug 2025)</h3>
+  <ul>
+    <li>Optimized targeting and capacity balance; +50% qualified lead conversion.</li>
+    <li>Focused on high-value leads; +25% pipeline KPI.</li>
+  </ul>
+  <h3>Process Audit Intern — Lenden Sewa (Mar 2021 – Jun 2021)</h3>
+  <ul>
+    <li>Audited 100 products; fixed 15 discrepancies; +15% reliability.</li>
+    <li>Optimized vendor acquisition; +20% partnerships, +10% sales in 2 months.</li>
+  </ul>
+  <h3>President — IISE Chapter 947 (2024 – Present)</h3>
+  <ul>
+    <li>Led events, industry sessions, member development, strategic roadmap.</li>
+  </ul>
+  <h3>Research Assistant — Network Design & Inventory (2025 – Present)</h3>
+  <ul>
+    <li>Applied quantitative models to optimize relief logistics; co-developed analyses.</li>
+  </ul>
+</section>
+<section id="projects">
+  <h2>Selected Projects</h2>
+  <h3>Knex Catapult Prototypes</h3>
+  <ul>
+    <li>PDR/CDR, FMEA, test plans; reduced material cost by 30%.</li>
+  </ul>
+  <h3>Electronics Vending Machine</h3>
+  <ul>
+    <li>Implemented campus system for 8 SKUs with Gantt/WBS; 60% fewer stockouts, 40% higher turnover.</li>
+  </ul>
+</section>
+<section id="education">
+  <h2>Education</h2>
+  <p>Mercer University — B.S.E., Industrial Engineering (May 2027 expected). GPA 3.77</p>
+  <p>Transcript highlights: A's in Statics, Circuits, Engineering Economy, Probability & Statistics; in-progress: DOE, SPC, Lean Six Sigma, Manufacturing Practices.</p>
+</section>
+<section id="goals">
+  <h2>Career Goals</h2>
+  <p>Seeking Summer 2026 internships in Operations/Continuous Improvement, Manufacturing/Quality, Product/Systems Design, or Data Analytics. Keen to apply LSS, DOE, and SPC to deliver measurable operational outcomes.</p>
+</section>
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:sanjeev.raila15@gmail.com">sanjeev.raila15@gmail.com</a> • LinkedIn: <a href="https://www.linkedin.com/in/sanjeev-raila" target="_blank" rel="noreferrer">/in/sanjeev-raila</a></p>
+</section>
+<footer>
+  <p>© 2025 Sanjeev Raila</p>
+</footer>
 </body>
 </html>
