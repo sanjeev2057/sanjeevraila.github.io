@@ -1,84 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Sanjeev Raila — Industrial Engineering Portfolio</title>
-<style>body{font-family:Arial,sans-serif;padding:40px;max-width:900px;margin:0 auto;color:#222}h1{font-size:40px;margin:0 0 10px}h2{margin-top:40px}nav a{margin-right:12px}section{margin-top:20px}ul{margin-top:8px}code{background:#f3f3f3;padding:2px 6px;border-radius:6px}</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sanjeev Raila — Industrial Engineering Portfolio</title>
+  <meta name="description" content="Industrial Engineering portfolio of Sanjeev Raila — Lean Six Sigma, Analytics, Operations, Systems Design."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b1020;
+      --bg-soft:#0f1530;
+      --card:#121936;
+      --text:#e9eefc;
+      --muted:#a8b4e6;
+      --brand1:#6a8dff;
+      --brand2:#7bffd6;
+      --accent:#ffb86b;
+      --ring: rgba(122, 153, 255, .35);
+      --shadow: 0 10px 30px rgba(0,0,0,.35), 0 6px 18px rgba(30,50,150,.3);
+      --radius: 14px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#ffffff; --bg-soft:#f6f7fb; --card:#ffffff; --text:#0b1020; --muted:#576079;
+        --brand1:#3957ff; --brand2:#1fd9a3; --accent:#ff7a00; --ring: rgba(57, 87, 255, .25);
+        --shadow: 0 10px 24px rgba(10,20,60,.08), 0 6px 14px rgba(10,20,60,.06);
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      color:var(--text); background: radial-gradient(90vmax 90vmax at 10% -10%, rgba(122,153,255,.2), transparent 40%),
+               radial-gradient(70vmax 70vmax at 110% 10%, rgba(127,255,214,.16), transparent 35%),
+               var(--bg);
+      line-height:1.55; letter-spacing:.2px;
+    }
+    a{color:var(--brand2); text-decoration:none}
+    a:hover{opacity:.9}
+    .container{max-width:1080px; margin:0 auto; padding:28px 20px 80px}
+
+    /* Header / Nav */
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:16px; position:sticky; top:0; z-index:20;
+      padding:14px 0; backdrop-filter:saturate(140%) blur(10px);
+    }
+    .nav .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.4px}
+    .badge{font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace; font-size:12px; padding:4px 8px; border-radius:999px; background:linear-gradient(135deg, var(--brand1), var(--brand2)); color:#07121a}
+    .links{display:flex; gap:18px; align-items:center; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; gap:10px; border:none; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:600; color:#07121a; background:linear-gradient(135deg, var(--brand2), var(--brand1)); box-shadow:var(--shadow)}
+    .btn.ghost{background:transparent; color:var(--text); border:1px solid rgba(122,153,255,.35)}
+
+    /* Hero */
+    .hero{position:relative; border-radius:22px; padding:56px; overflow:hidden; background: linear-gradient(135deg, rgba(106,141,255,.18), rgba(123,255,214,.16) 40%, rgba(10,16,32,.0)), linear-gradient(180deg, var(--bg-soft), transparent);
+      box-shadow: var(--shadow);
+    }
+    .hero h1{font-size: clamp(36px, 5vw, 64px); line-height:1.05; margin:6px 0 12px; letter-spacing:.2px}
+    .hero p.lead{font-size: clamp(16px, 1.6vw, 20px); color:var(--muted); max-width:820px}
+    .hero .cta{margin-top:24px; display:flex; flex-wrap:wrap; gap:12px}
+    .spark{position:absolute; inset:-40% -20% auto auto; width:90%; height:140%; pointer-events:none; background:
+        radial-gradient(600px 300px at 20% 20%, rgba(106,141,255,.25), transparent 55%),
+        radial-gradient(500px 240px at 80% 40%, rgba(123,255,214,.22), transparent 60%),
+        radial-gradient(700px 300px at 50% 110%, rgba(255,184,107,.18), transparent 65%);
+      mix-blend-mode: screen; animation: float 12s ease-in-out infinite alternate;
+    }
+    @keyframes float{from{transform:translateY(-10px)} to{transform:translateY(10px)}}
+    .hi{display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(122,153,255,.14); color:var(--brand2); font-weight:700; font-size:13px; letter-spacing:.6px; text-transform:uppercase}
+
+    /* Sections */
+    section{margin-top:56px}
+    .section-title{display:flex; align-items:center; gap:10px; font-size:14px; letter-spacing:.8px; color:var(--muted); text-transform:uppercase}
+    .grid{display:grid; gap:18px}
+    .cards{grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.0)); border:1px solid rgba(122,153,255,.18); border-radius:var(--radius); padding:18px 18px 16px; box-shadow:var(--shadow); transition:transform .2s ease, border-color .2s ease}
+    .card:hover{transform:translateY(-4px); border-color:var(--ring)}
+    .card h3{margin:6px 0 6px; font-size:18px}
+    .muted{color:var(--muted)}
+
+    /* Timeline */
+    .timeline{position:relative}
+    .timeline::before{content:""; position:absolute; left:10px; top:8px; bottom:8px; width:2px; background:linear-gradient(var(--brand1), var(--brand2))}
+    .step{position:relative; padding-left:36px; margin:0 0 18px}
+    .step::before{content:""; position:absolute; left:2px; top:4px; width:16px; height:16px; border-radius:50%; background:linear-gradient(135deg,var(--brand1),var(--brand2)); box-shadow:0 0 0 4px rgba(122,153,255,.15)}
+
+    /* Skills */
+    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+    .chip{display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(122,153,255,.28); background:rgba(122,153,255,.08); padding:8px 10px; border-radius:999px; font-size:13px}
+    .chip i{font-size:14px; color:var(--brand2)}
+
+    /* Footer */
+    footer{margin-top:64px; display:flex; justify-content:space-between; align-items:center; gap:12px; color:var(--muted)}
+    .social{display:flex; gap:12px}
+    .tiny{font-family:"JetBrains Mono", ui-monospace, monospace; font-size:12px}
+
+    /* Responsive */
+    @media (max-width: 720px){
+      .hero{padding:28px}
+      .nav .links{display:none}
+    }
+  </style>
 </head>
 <body>
-<nav>
-  <a href="#about">About</a>
-  <a href="#experience">Experience</a>
-  <a href="#projects">Projects</a>
-  <a href="#education">Education</a>
-  <a href="#contact">Contact</a>
-</nav>
-<header>
-  <h1>Hi, I'm Sanjeev Raila</h1>
-  <p>Industrial Engineering @ Mercer University — Lean Six Sigma, Analytics, Operations</p>
-</header>
-<section id="about">
-  <h2>About</h2>
-  <p>Process-improvement focused engineer with leadership experience as IISE Chapter 947 President and research experience in network design & inventory management for humanitarian logistics.</p>
-  <ul>
-    <li>GPA 3.77, Dean's List</li>
-    <li>Lean Six Sigma Green Belt (in progress)</li>
-    <li>Tools: Excel (advanced), Minitab, Power BI, SolidWorks, MS Project</li>
-  </ul>
-</section>
-<section id="experience">
-  <h2>Experience & Leadership</h2>
-  <h3>Marketing Intern — Aramark (Jan 2024 – Present)</h3>
-  <ul>
-    <li>Automated data-entry; reduced project lead time by 15%.</li>
-    <li>Built real-time tracking; accelerated planning decisions by 20%.</li>
-  </ul>
-  <h3>Sales & Solar Design Intern — LGCY Power (May 2025 – Aug 2025)</h3>
-  <ul>
-    <li>Optimized targeting and capacity balance; +50% qualified lead conversion.</li>
-    <li>Focused on high-value leads; +25% pipeline KPI.</li>
-  </ul>
-  <h3>Process Audit Intern — Lenden Sewa (Mar 2021 – Jun 2021)</h3>
-  <ul>
-    <li>Audited 100 products; fixed 15 discrepancies; +15% reliability.</li>
-    <li>Optimized vendor acquisition; +20% partnerships, +10% sales in 2 months.</li>
-  </ul>
-  <h3>President — IISE Chapter 947 (2024 – Present)</h3>
-  <ul>
-    <li>Led events, industry sessions, member development, strategic roadmap.</li>
-  </ul>
-  <h3>Research Assistant — Network Design & Inventory (2025 – Present)</h3>
-  <ul>
-    <li>Applied quantitative models to optimize relief logistics; co-developed analyses.</li>
-  </ul>
-</section>
-<section id="projects">
-  <h2>Selected Projects</h2>
-  <h3>Knex Catapult Prototypes</h3>
-  <ul>
-    <li>PDR/CDR, FMEA, test plans; reduced material cost by 30%.</li>
-  </ul>
-  <h3>Electronics Vending Machine</h3>
-  <ul>
-    <li>Implemented campus system for 8 SKUs with Gantt/WBS; 60% fewer stockouts, 40% higher turnover.</li>
-  </ul>
-</section>
-<section id="education">
-  <h2>Education</h2>
-  <p>Mercer University — B.S.E., Industrial Engineering (May 2027 expected). GPA 3.77</p>
-  <p>Transcript highlights: A's in Statics, Circuits, Engineering Economy, Probability & Statistics; in-progress: DOE, SPC, Lean Six Sigma, Manufacturing Practices.</p>
-</section>
-<section id="goals">
-  <h2>Career Goals</h2>
-  <p>Seeking Summer 2026 internships in Operations/Continuous Improvement, Manufacturing/Quality, Product/Systems Design, or Data Analytics. Keen to apply LSS, DOE, and SPC to deliver measurable operational outcomes.</p>
-</section>
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:sanjeev.raila15@gmail.com">sanjeev.raila15@gmail.com</a> • LinkedIn: <a href="https://www.linkedin.com/in/sanjeev-raila" target="_blank" rel="noreferrer">/in/sanjeev-raila</a></p>
-</section>
-<footer>
-  <p>© 2025 Sanjeev Raila</p>
-</footer>
+  <div class="container">
+    <nav class="nav" aria-label="Primary">
+      <div class="brand">
+        <span class="badge">IE</span>
+        <span>Sanjeev Raila</span>
+      </div>
+      <div class="links">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact" class="btn ghost">Contact</a>
+      </div>
+    </nav>
+
+    <header class="hero" role="banner">
+      <div class="spark" aria-hidden="true"></div>
+      <span class="hi">Industrial Engineering @ Mercer</span>
+      <h1>Designing efficient systems that turn data into measurable impact.</h1>
+      <p class="lead">Lean Six Sigma, DOE/SPC, and analytics-driven operations. IISE Chapter 947 President. Research in network design and inventory optimization for humanitarian logistics.</p>
+      <div class="cta">
+        <a class="btn" href="mailto:sanjeev.raila15@gmail.com">Email me</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/sanjeev-raila" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="btn ghost" href="#projects">See projects</a>
+      </div>
+    </header>
+
+    <section id="experience">
+      <div class="section-title"><span>Experience & Leadership</span></div>
+      <div class="timeline">
+        <div class="step">
+          <h3>Marketing / Process Improvement Intern — Aramark <span class="muted">(Jan 2024 – Present)</span></h3>
+          <ul class="muted">
+            <li>Automated data-entry; reduced project lead time by 15%.</li>
+            <li>Built real-time tracking; accelerated planning decisions by 20%.</li>
+          </ul>
+        </div>
+        <div class="step">
+          <h3>Sales & Solar Design Intern — LGCY Power <span class="muted">(May 2025 – Aug 2025)</span></h3>
+          <ul class="muted">
+            <li>Optimized targeting and capacity balance; +50% qualified lead conversion.</li>
+            <li>Focused on high-value leads; +25% pipeline KPI.</li>
+          </ul>
+        </div>
+        <div class="step">
+          <h3>Process Audit Intern — Lenden Sewa <span class="muted">(Mar 2021 – Jun 2021)</span></h3>
+          <ul class="muted">
+            <li>Audited 100 products; resolved 15 discrepancies; +15% reliability.</li>
+            <li>Optimized vendor acquisition; +20% partnerships, +10% sales in 2 months.</li>
+          </ul>
+        </div>
+        <div class="step">
+          <h3>President — IISE Chapter 947 <span class="muted">(2024 – Present)</span></h3>
+          <ul class="muted">
+            <li>Led events, industry sessions, member development, and strategic roadmap.</li>
+          </ul>
+        </div>
+        <div class="step">
+          <h3>Research Assistant — Network Design & Inventory <span class="muted">(2025 – Present)</span></h3>
+          <ul class="muted">
+            <li>Applied quantitative models to optimize relief logistics; co-developed analyses.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-title"><span>Selected Projects</span></div>
+      <div class="grid cards">
+        <article class="card">
+          <h3>Knex Catapult Prototypes</h3>
+          <p class="muted">PDR/CDR, FMEA, and test validation plans; reduced material cost by 30% while maintaining performance.</p>
+          <div class="chips">
+            <span class="chip"><i>⏱</i> Test Plans</span>
+            <span class="chip"><i>🧪</i> DOE</span>
+            <span class="chip"><i>🛡</i> FMEA</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Electronics Vending Machine</h3>
+          <p class="muted">Implemented campus system for 8 SKUs with Gantt/WBS; 60% fewer stockouts, 40% higher turnover.</p>
+          <div class="chips">
+            <span class="chip"><i>📈</i> KPIs</span>
+            <span class="chip"><i>📦</i> Inventory</span>
+            <span class="chip"><i>🗂</i> WBS</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-title"><span>Skills & Tools</span></div>
+      <div class="chips">
+        <span class="chip"><i>📊</i> Excel (advanced)</span>
+        <span class="chip"><i>📉</i> Minitab</span>
+        <span class="chip"><i>🧭</i> Power BI</span>
+        <span class="chip"><i>🛠</i> SolidWorks</span>
+        <span class="chip"><i>🗓</i> MS Project</span>
+        <span class="chip"><i>⚙️</i> Lean Six Sigma (GB in progress)</span>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="section-title"><span>Education</span></div>
+      <div class="grid cards">
+        <article class="card">
+          <h3>Mercer University — B.S.E., Industrial Engineering</h3>
+          <p class="muted">Expected May 2027. GPA 3.77. Dean's List. Transcript highlights: A's in Statics, Circuits, Engineering Economy, Probability & Statistics; in-progress: DOE, SPC, Lean Six Sigma, Manufacturing Practices.</p>
+        </article>
+        <article class="card">
+          <h3>Career Goals</h3>
+          <p class="muted">Seeking Summer 2026 internships in Operations/Continuous Improvement, Manufacturing/Quality, Product/Systems Design, or Data Analytics. Applying LSS, DOE, and SPC to deliver measurable outcomes.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title"><span>Contact</span></div>
+      <div class="grid">
+        <div class="card">
+          <h3>Get in touch</h3>
+          <p class="muted">Email: <a href="mailto:sanjeev.raila15@gmail.com">sanjeev.raila15@gmail.com</a></p>
+          <p class="muted">LinkedIn: <a href="https://www.linkedin.com/in/sanjeev-raila" target="_blank" rel="noreferrer">/in/sanjeev-raila</a></p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span class="tiny">© 2025 Sanjeev Raila</span>
+      <div class="social tiny">
+        <a href="#">Top ↑</a>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
